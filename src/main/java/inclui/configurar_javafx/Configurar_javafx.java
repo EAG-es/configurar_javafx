@@ -33,15 +33,15 @@ import java.util.ResourceBundle;
  * @author emilio
  */
 public class Configurar_javafx extends iniciales {
-    public static String k_in_ruta = "in/inclui/lanzar_javafx/in";  //NOI18N
+    public static String k_in_ruta = "in/inclui/configurar_javafx/in";  //NOI18N
     public static String k_so_mac = "mac";
     public static String k_so_win = "win";
     public static String k_so_linux = "linux";
-    public static String k_dir_libs_mac = "lanzar_javafx.dir_libs_mac";
-    public static String k_dir_libs_win = "lanzar_javafx.dir_libs_win";
-    public static String k_dir_libs_linux = "lanzar_javafx.dir_libs_linux";
-    public static String k_dir_libs_java = "lanzar_javafx.dir_libs_java";
-    public static String k_path_javafx = "lanzar_javafx.path_javafx";
+    public static String k_dir_libs_mac = "configurar_javafx.dir_libs_mac";
+    public static String k_dir_libs_win = "configurar_javafx.dir_libs_win";
+    public static String k_dir_libs_linux = "configurar_javafx.dir_libs_linux";
+    public static String k_dir_libs_java = "configurar_javafx.dir_libs_java";
+    public static String k_path_javafx = "configurar_javafx.path_javafx";
     public static String k_dir = "-dir";
     public static String k_jar = "-jar";
     public static String k_lanzar_java_con_javafx_module_path 
