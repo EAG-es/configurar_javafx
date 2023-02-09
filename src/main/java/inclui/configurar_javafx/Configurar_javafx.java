@@ -16,7 +16,6 @@ import innui.modelos.modelos;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-import static java.lang.System.err;
 import static java.lang.System.exit;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -140,11 +139,6 @@ public class Configurar_javafx extends iniciales {
                     }
                     if (ok.es == false) { break; }
                     carpeta_de_trabajo = carpeta_de_trabajo.getCanonicalFile();
-                    i = args_lista.indexOf(k_jar);
-                    if (i >= 0) {
-                        lanzar_aplicacion_javafx_configurada(carpeta_de_trabajo, args_lista, ok);
-                        if (ok.es == false) { break; }
-                    }
                     instalar_javafx(ruta_javafx, carpeta_de_trabajo.getCanonicalPath(), ok);
                     if (ok.es == false) { break; }
                     ruta_javafx = properties.getProperty(k_dir_libs_java);
@@ -157,6 +151,11 @@ public class Configurar_javafx extends iniciales {
                         ok.no_nul(ruta_javafx, tr.in(in, "Propiedad no encontrada ") + propiedad_dir_lib_correcta);
                         if (ok.es == false) { break; }
                         desinstalar_javafx(ruta_javafx, carpeta_de_trabajo.getCanonicalPath(), ok);
+                        if (ok.es == false) { break; }
+                    }
+                    i = args_lista.indexOf(k_jar);
+                    if (i >= 0) {
+                        lanzar_aplicacion_javafx_configurada(carpeta_de_trabajo, args_lista, ok);
                         if (ok.es == false) { break; }
                     }
                     break;
