@@ -13,9 +13,11 @@ import static innui.modelos.configuraciones.rutas.crear_rutas_padre;
 import innui.modelos.errores.oks;
 import innui.modelos.internacionalizacion.tr;
 import innui.modelos.modelos;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import static java.lang.System.exit;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -196,14 +198,25 @@ public class Configurar_javafx extends iniciales {
         }
         if (ok.es == false) { return ok.es; }
         String comando = "";
-        int i = 0;
         for (String palabra: comando_lista) {
             comando = comando + palabra.trim() + " ";
-            i = i + 1;
         }
         String [] comando_array = comando.split("\\s");
         Runtime runtime = Runtime.getRuntime();
         Process process = runtime.exec(comando_array, null, carpeta_de_trabajo);
+        InputStream inputStream = process.getInputStream();
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+        String linea;
+        while (true) {
+            linea = bufferedReader.readLine();
+            if (linea == null) {
+                break;
+            }
+            this.escribir_linea(linea, ok);
+            if (ok.es == false) {
+                break;
+            }
+        }
         return ok.es;
     }
 
@@ -216,6 +229,7 @@ public class Configurar_javafx extends iniciales {
             File file_destino;
             int i;
             String ruta_origen_desde_clase = rutas.crear_ruta_desde_clase(getClass(), ruta_origen, ok);
+            if (ok.es == false) { return ok.es; }
             File carpeta_origen = new File(ruta_origen_desde_clase);
             if (carpeta_origen.exists()) {
                 // Está fuera. 
