@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package inclui.configurar_javafx;
 
 import innui.modelos.configuraciones.ResourceBundles;
